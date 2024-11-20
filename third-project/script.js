@@ -4,6 +4,8 @@ const email = document.getElementById("email");
 const phone = document.getElementById("phone");
 const password = document.getElementById("password");
 const cpassword = document.getElementById("retypepass");
+const resetBtn = document.getElementById("reset-btn");
+let submitBtn = document.getElementById("submit-btn");
 
 form.addEventListener("submit", function (e) {
   console.log("Form submitted successfully");
@@ -28,8 +30,7 @@ const isEmail = (emailVal) => {
 const validate = () => {
   const userNameVal = userName.value.trim();
   const emailVal = email.value.trim();
-  console.log(emailVal);
-  // const phoneVal = phone.value.trim();
+  const phoneVal = phone.value.trim();
   const passwordVal = password.value.trim();
   const cpasswordVal = cpassword.value.trim();
 
@@ -51,13 +52,13 @@ const validate = () => {
   }
 
   //validate phone
-  //   if(phoneVal === ""){
-  // 	setErrorMsg(phone, 'phone num cannot be blank');
-  // } else if (phoneVal.length != 11 ) {
-  // 	setErrorMsg(phone, 'not valid phone num');
-  // } else{
-  // 	setSuccessmsg(phone);
-  // }
+    if(phoneVal === ""){
+  	setErrorMsg(phone, 'phone num cannot be blank');
+  } else if (phoneVal.length < 10 ) {
+  	setErrorMsg(phone, 'not valid phone num');
+  } else{
+  	setSuccessmsg(phone);
+  }
 
   //validate password
   if (passwordVal === "") {
@@ -81,7 +82,7 @@ const validate = () => {
 
   setTimeout(() => {
     let successCls = document.querySelectorAll(".success");
-    if (successCls.length == 4) {
+    if (successCls.length == 5) {
       showSubmittedMsg();
     }
   }, 1000);
@@ -111,8 +112,32 @@ function setSuccessmsg(input) {
 function previewForm() {
   document.getElementById("main-page").style.display = "block";
   document.getElementById("submitted-msg").style.display = "none";
-  let submitBtn = document.getElementById("submit-btn");
   submitBtn.classList.remove("btn");
   submitBtn.classList.add("disabled-btn");
   submitBtn.disabled = true;
+  resetBtn.style.display = "block";
 }
+
+resetBtn.addEventListener('click', resetForm);
+
+function resetForm(){
+  // const inputs = document.querySelectorAll("input");
+  // inputs.forEach((input) => {
+  //   const fromGroup = input.parentNode;
+  //   fromGroup.className = "form-group";
+  //   const small = fromGroup.querySelector("small");
+  //   small.innerText = '';
+  // })
+  form.reset();
+  resetBtn.style.display = "none";
+  submitBtn.classList.add("btn");
+  submitBtn.classList.remove("disabled-btn");
+  submitBtn.disabled = false;
+  const formGroups = document.querySelectorAll(".form-group");
+  formGroups.forEach(group => {
+    group.className = "form-group"; // Remove both error and success classes
+    group.querySelector("small").innerText = ""; // Clear error message
+  });
+}
+
+

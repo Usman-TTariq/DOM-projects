@@ -117,14 +117,29 @@ body {
 }
 
 .form .btn {
-  /*background-color: #8EC5FC;*/
   background-image: linear-gradient(62deg, #4e54c8 0%, #8f94fb 100%);
-
   border-radius: 6px;
   border: none;
   outline: none;
   color: #fff;
   display: block;
+  font-size: 16px;
+  padding: 11px 0;
+  margin-top: 30px;
+  width: 100%;
+  font-weight: 800;
+  text-transform: uppercase;
+  transition: all 1s ease;
+  cursor: pointer;
+}
+
+.form .reset-btn {
+  background-image: linear-gradient(62deg, #cf3a3a 0%, #fb8f8f 100%);
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  color: #fff;
+  display: none;
   font-size: 16px;
   padding: 11px 0;
   margin-top: 30px;

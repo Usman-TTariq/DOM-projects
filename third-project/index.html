@@ -4,7 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+    integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ=="
+    crossorigin="anonymous"
+  />
     <link rel="stylesheet" href="./style.css" />
     <title>Form Validation | DOM Projects</title>
   </head>
@@ -21,6 +26,8 @@
             id="username"
             placeholder="Enter Your Name"
             autocomplete="off"
+            pattern="[A-Za-z]{3,}" title="Please enter at least 3 letters"
+            required
           />
           <i class="fas fa-check-circle"></i>
           <i class="fas fa-exclamation-circle"></i>
@@ -28,24 +35,25 @@
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" placeholder="Enter your email" />
+          <input type="email" id="email" placeholder="Enter your email" required/>
           <i class="fas fa-check-circle"></i>
           <i class="fas fa-exclamation-circle"></i>
           <small>Error Msg</small>
         </div>
-        <!-- <div class="form-group">
-          <label for="">Phone Number</label>
-          <input type="number" id="phone" placeholder="Enter phone number" />
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="text" id="phone" placeholder="Enter phone number" required/>
           <i class="fas fa-check-circle"></i>
           <i class="fas fa-exclamation-circle"></i>
           <small>Error Msg</small>
-        </div> -->
+        </div>
         <div class="form-group">
           <label for="password">Password</label>
           <input
             type="password"
             id="password"
             placeholder="Enter your password"
+            required
           />
           <i class="fas fa-check-circle"></i>
           <i class="fas fa-exclamation-circle"></i>
@@ -57,12 +65,14 @@
             type="password"
             id="retypepass"
             placeholder="Enter password again"
+            required
           />
           <i class="fas fa-check-circle"></i>
           <i class="fas fa-exclamation-circle"></i>
           <small>Error Msg</small>
         </div>
-        <input id="submit-btn" type="submit" value="Submit" class="btn" />
+        <button id="submit-btn" type="submit" class="btn">SUBMIT</button>
+        <button id="reset-btn" value="reset" class="reset-btn">RESET</button>
       </form>
     </div>
     <!-- message after submitted -->
